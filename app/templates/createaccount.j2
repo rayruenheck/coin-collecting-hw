@@ -1,8 +1,16 @@
 {% extends "base.j2" %}
 {%block register%}
 <form action="" method="post" novalidate>
-    <h2>Register</h2>
+    <h2>Create an Account</h2>
     {{ form.hidden_tag()}}
+    <p>
+        {{form.first_name.label}}<br>
+        {{form.first_name(size=32)}}
+    </p>
+    <p>
+        {{form.last_name.label}}<br>
+        {{form.last_name(size=32)}}
+    </p>
     <p>
         {{form.username.label}}<br>
         {{form.username(size=32)}}

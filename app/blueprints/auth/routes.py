@@ -18,7 +18,7 @@ def createaccount():
         user = User.query.filter_by(username=form.username.data).first()
         email = User.query.filter_by(email=form.email.data).first()
         if not email and not user:
-            u = User(username=username, email=form.email.data, password=form.password.data)
+            u = User(username=username, email=form.email.data, password=form.password.data, first_name= form.first_name.data, last_name=form.last_name.data)
             u.commit()
             flash(f'{username} created')
             return redirect(url_for('main.home'))
