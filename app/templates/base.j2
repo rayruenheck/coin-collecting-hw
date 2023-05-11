@@ -14,16 +14,21 @@
 </head>
 <body>
   {% include "navbar.j2" %}
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul>
-  {% for message in messages %}
-      <li>{{ message }}</li>
-  {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}
-  {%block register%}{% endblock %}  
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="alert alert-{{category}} alert-dismissible fade show" role="alert">{{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </li>
+        
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+        <h3>Welcome {{ current_user.username }}</h3>
+    {% endif %}
+    {% endwith %} 
   {% block content %}{% endblock%}
 
 
