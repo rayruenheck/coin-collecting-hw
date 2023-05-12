@@ -15,6 +15,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
         return f'user: {self.username}'

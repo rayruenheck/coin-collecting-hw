@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required, current_user
 
 from app.models import User
 from app import db
@@ -42,3 +42,8 @@ def createaccount():
             flash(f'{form.email.data} already exists')
     return render_template('createaccount.j2', form=form)
 
+@bp.route('/logout', methods=['GET','POST'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.home'))

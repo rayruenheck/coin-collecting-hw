@@ -1,0 +1,10 @@
+<form action="{{ url_for('social.user_search')}}" method="post">
+
+    {{ user_search_form.hidden_tag()}}
+    <p>
+    {{user_search_form.user.label}}<br>
+    {{user_search_form.user(size=32)}}
+    </p>
+
+    <p>{{user_search_form.submit()}}</p>
+</form>

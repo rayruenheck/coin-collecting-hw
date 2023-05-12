@@ -21,4 +21,8 @@ app.register_blueprint(main_bp)
 from app.blueprints.social import bp as social_bp
 app.register_blueprint(social_bp)
 
+from app.blueprints.api import bp as api_bp
+app.register_blueprint(api_bp)
+
+
 from app import models

@@ -23,12 +23,15 @@
     </li>
         
     {% endfor %}
+    
     </ul>
     {% endif %}
+    {% endwith %}
+    <h1>Coin Colecting Awseome Website</h1>
     {% if current_user.is_authenticated %}
         <h3>Welcome {{ current_user.username }}</h3>
-    {% endif %}
-    {% endwith %} 
+    {% include "./includes/user_search.j2" %}
+    {% endif %} 
   {% block content %}{% endblock%}
 
 

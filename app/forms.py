@@ -21,3 +21,7 @@ class PostForm(FlaskForm):
     type = StringField('type', validators=[DataRequired()])
     grade = StringField('grade', validators=[DataRequired()])
     submit = SubmitField('Publish')
+
+class UserSearchForm(FlaskForm):
+    user = StringField('user', validators=[DataRequired()])
+    submit = SubmitField('Search')
